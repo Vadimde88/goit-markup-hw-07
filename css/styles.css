@@ -56,11 +56,23 @@ h1 {
 }
 
 .container {
-	width: 1158px;
+	max-width: 480px;
 	padding-left: 15px;
 	padding-right: 15px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 768px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 1200px;
+	}
 }
 
 .current {
@@ -84,8 +96,10 @@ header > div {
 	margin-right: 40px;
 }
 
-.nav-tel {
-	margin-left: 40px;
+@media (min-width: 1200px) {
+	.nav-tel {
+		margin-left: 40px;
+	}
 }
 
 .icon-envelope {
@@ -116,6 +130,18 @@ header > div {
 	margin-right: 76px;
 }
 
+@media (max-width: 767px) {
+	.nav-logo-title {
+		padding: 24px 0;
+	}
+}
+
+@media (min-width: 1200px) {
+	.nav-logo-title {
+		margin-right: 120px;
+	}
+}
+
 .footer-logo-title {
 	color: var(--accent-color);
 }
@@ -127,6 +153,36 @@ header > div {
 	text-decoration: none;
 	color: var(--text-color);
 	transition: color 250ms;
+}
+
+@media (max-width: 767px) {
+	.navigation-links {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) {
+	.navigation-links {
+		display: flex;
+		align-items: center;
+	}
+}
+
+.navigation-contacts {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.navigation-contacts {
+		display: block;
+	}
+}
+
+@media (min-width: 1200px) {
+	.navigation-contacts {
+		display: flex;
+		align-items: center;
+	}
 }
 
 .contacts {
@@ -191,6 +247,56 @@ header > div {
 	transform: scale(1);
 }
 
+.menu-button {
+	padding: 0;
+	top: 10px;
+	right: 15px;
+	position: absolute;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	transition-property: color;
+	transition-duration: 250ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-button.is-open {
+	position: fixed;
+	z-index: 2;
+}
+
+.menu-button:hover,
+.menu-button:focus {
+	color: var(--accent-color);
+}
+
+.menu-button__icon {
+	fill: currentColor;
+}
+
+@media (min-width: 768px) {
+	.menu-button {
+		display: none;
+	}
+}
+
+.icon-menu {
+	display: block;
+}
+
+.icon-cross {
+	display: none;
+	position: fixed;
+}
+
+.menu-button.is-open .icon-cross {
+	display: block;
+}
+
+.menu-button.is-open .icon-menu {
+	display: none;
+}
+
 /* hero container */
 .hero-section > div {
 	padding: 0 300px;
@@ -204,24 +310,57 @@ header > div {
 	text-align: center;
 	margin: 0 auto;
 
-	background-image: url(../images/index-html-images/hero-background.jpg);
+	background-image: url(../images/index-html-images/hero-tablet.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	background-image: linear-gradient(to right, rgba(47, 48, 58, 0.7), rgba(47, 48, 58, 0.7)),
-		url(../images/index-html-images/hero-background.jpg);
+		url(../images/index-html-images/hero-tablet.jpg);
 
 	background-color: var(--dark-background-color);
 }
 
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+	.hero-section {
+		background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+			url(../images/index-html-images/hero-tablet@2x.jpg);
+	}
+}
+
+@media (min-width: 1200px) {
+	.hero-section {
+		min-height: 600px;
+		padding: 200px 0;
+		background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+			url(../images/index-html-images/hero-background.jpg);
+	}
+}
+
+@media (min-width: 1200px) and (min-device-pixel-ratio: 2),
+	(min-width: 1200px) and (min-resolution: 192dpi),
+	(min-width: 1200px) and (min-resolution: 2dppx) {
+	.hero-section {
+		background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+			url(../images/index-html-images/hero-background@2x.jpg);
+	}
+}
+
 .hero-title {
+	max-width: 494px;
 	margin-bottom: 48px;
 	font-weight: 700;
-	font-size: 56px;
+	font-size: 36px;
 	line-height: 1.07;
 	text-align: center;
 
 	color: var(--light-text-color);
+}
+
+@media (min-width: 1200px) {
+	.hero-title {
+		font-size: 56px;
+		line-height: 1.11;
+	}
 }
 
 .button-primary {
@@ -567,9 +706,14 @@ header > div {
 
 /* footer */
 .footer-section {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding: 96px 0;
 	background-color: var(--dark-background-color);
+}
+
+@media (min-width: 1200px) {
+	.footer-section {
+		padding: 100px 0;
+	}
 }
 
 .footer-container {
